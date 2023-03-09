@@ -1,6 +1,5 @@
 spisok = input("Введите последовательность чисел через пробел: ")
 spisok_list = [int(a) for a in spisok.split()]
-
 num = int(input("Введите любое число: "))
 if num % 1 == 0:
         spisok_list.append(num)
@@ -16,3 +15,17 @@ def my_sort(spisok_list):
     return spisok_list
 
 print("Список после сортировки:", my_sort(spisok_list))
+def bi_search(a: int, spisok: list) -> int:
+    left, right = 0, len(spisok)
+    while left < right:
+        middle = (left + right) // 2
+        if spisok[middle] < a:
+            left = middle + 1
+        else:
+            right = middle
+    return left
+
+print("Индекс введенного числа:", bi_search(num, spisok_list))
+
+spisok_list.index(num, spisok_list.index(num) - 1, spisok_list.index(num) + 1)
+print("Индекс соседник чисел:", spisok_list.index(num) - 1, spisok_list.index(num) +1)
